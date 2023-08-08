@@ -37,11 +37,35 @@ const Login = () => {
     });
     setFormValues({ username: "", password: "" });
 
-    setAuthenticated(true);
     setUser(payload);
+    setAuthenticated(true);
+    
+    navigate('/')
   };
 
-  return <></>;
+  return (
+  <>
+  <form onSubmit={handleSubmit}>
+    <label className='user=password' htmlFor="username">Username</label>
+    <input
+      className='login-input'
+      onChange={handleChange}
+      type="password"
+      name="password"
+      placeholder='password'
+      value={formValues.password}
+      required
+      />
+      <div>
+      <button className='signin-button' disabled={formValues.username === '' || formValues.password === ''}>
+        Log In
+      </button>
+
+      </div>
+
+  </form>
+  </>
+  )
 };
 
 export default Login;
