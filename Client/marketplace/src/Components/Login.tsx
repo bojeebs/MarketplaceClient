@@ -21,10 +21,13 @@ const Login = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    console.log("Form Values:", formValues);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("Form Submitted:", formValues);
+    try {
     const payload = await LoginUser(formValues);
     console.log(payload);
     setInfo({
@@ -41,13 +44,29 @@ const Login = () => {
     setAuthenticated(true);
     
     navigate('/')
-  };
+  } catch (error) {
+    console.error("Login Error:", error);
+  }
+}
 
   return (
   <>
   <form onSubmit={handleSubmit}>
-    <label className='user=password' htmlFor="username">Username</label>
+    <label className='username' htmlFor="username">Username</label>
+    <>
     <input
+      className='login-input'
+      onChange={handleChange}
+      type="text"
+      name="username"
+      placeholder='username'
+      value={formValues.username}
+      required
+      />
+      </>
+      <div>
+      <label className='password' htmlFor="password">Password</label>
+      <input 
       className='login-input'
       onChange={handleChange}
       type="password"
@@ -55,7 +74,9 @@ const Login = () => {
       placeholder='password'
       value={formValues.password}
       required
-      />
+      >
+      </input>
+      </div>
       <div>
       <button className='signin-button' disabled={formValues.username === '' || formValues.password === ''}>
         Log In
