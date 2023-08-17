@@ -28,65 +28,69 @@ const Login = () => {
     e.preventDefault();
     console.log("Form Submitted:", formValues);
     try {
-    const payload = await LoginUser(formValues);
-    console.log(payload);
-    setInfo({
-      ...info,
-      id: payload.id,
-      username: payload.username,
-      password: payload.password,
-      createdAt: payload.createdAt,
-      updatedAt: payload.updatedAt,
-    });
-    setFormValues({ username: "", password: "" });
+      const payload = await LoginUser(formValues);
+      console.log(payload);
+      setInfo({
+        ...info,
+        id: payload.id,
+        username: payload.username,
+        password: payload.password,
+        createdAt: payload.createdAt,
+        updatedAt: payload.updatedAt,
+      });
+      setFormValues({ username: "", password: "" });
 
-    setUser(payload);
-    setAuthenticated(true);
-    
-    navigate('/')
-  } catch (error) {
-    console.error("Login Error:", error);
-  }
-}
+      setUser(payload);
+      setAuthenticated(true);
+
+      navigate("/");
+    } catch (error) {
+      console.error("Login Error:", error);
+    }
+  };
 
   return (
-  <>
-  <form onSubmit={handleSubmit}>
-    <label className='username' htmlFor="username">Username</label>
     <>
-    <input
-      className='login-input'
-      onChange={handleChange}
-      type="text"
-      name="username"
-      placeholder='username'
-      value={formValues.username}
-      required
-      />
-      </>
-      <div>
-      <label className='password' htmlFor="password">Password</label>
-      <input 
-      className='login-input'
-      onChange={handleChange}
-      type="password"
-      name="password"
-      placeholder='password'
-      value={formValues.password}
-      required
-      >
-      </input>
-      </div>
-      <div>
-      <button className='signin-button' disabled={formValues.username === '' || formValues.password === ''}>
-        Log In
-      </button>
-
-      </div>
-
-  </form>
-  </>
-  )
+      <form onSubmit={handleSubmit}>
+        <label className="username" htmlFor="username">
+          Username
+        </label>
+        <>
+          <input
+            className="login-input"
+            onChange={handleChange}
+            type="text"
+            name="username"
+            placeholder="username"
+            value={formValues.username}
+            required
+          />
+        </>
+        <div>
+          <label className="password" htmlFor="password">
+            Password
+          </label>
+          <input
+            className="login-input"
+            onChange={handleChange}
+            type="password"
+            name="password"
+            placeholder="password"
+            value={formValues.password}
+            required
+          ></input>
+        </div>
+        <div>
+          <button
+            className="signin-button"
+            disabled={formValues.username === "" || formValues.password === ""}
+          >
+            Log In
+          </button>
+        </div>
+      </form>
+    </>
+  );
 };
 
 export default Login;
