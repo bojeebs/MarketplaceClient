@@ -2,6 +2,7 @@ import './App.css';
 import { AuthProvider } from './AuthContext';
 import Landing from './Components/Landing.tsx';
 import Login from './Components/Login.tsx';
+import Register from './Components/Register.tsx';
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router';
 
@@ -21,6 +22,7 @@ const [user, setUser] = useState(null)
       <Route path="/" element={<><Landing /></>}
       />
       <Route path="login" element={<><Login /></>}/>
+      <Route path="register" element={<><Register/> </>}/>
 
 
 
