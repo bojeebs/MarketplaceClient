@@ -6,16 +6,14 @@ import { useEffect, useState} from 'react'
 
 interface Product {
   id: number;
-  image: string;
-  description: string;
+  imageUrl: string;
+  productDescription: string;
 }
+
 const Landing = () => {
-
-const { authenticated, setAuthenticated, user, setUser } = useAuth();
-
-const Products = ({user, authenticated}) => {
-  const [product, setProducts] = useState<Product[]>([])
-  let navigate = useNavigate()
+  const { authenticated, setAuthenticated, user, setUser } = useAuth();
+  const [products, setProducts] = useState<Product[]>([]);
+  let navigate = useNavigate();
 
   useEffect(() => {
     const handleProducts = async () => {
@@ -24,24 +22,21 @@ const Products = ({user, authenticated}) => {
       setProducts(data);
     };
     handleProducts();
-  }, [])
-  
-  console.log("Rendering products:", product);
+  }, []);
 
-return (
-  <div className="products">
-    <h1 className="title">Products</h1>
-    {product.map((product) => (
-      <div className="product-card" key={product.id}>
-        <h3>{product.image}</h3>
-        <h3>{product.description}</h3>
-      </div>
-    ))}
-  </div>
-)
-}
-    
-}
+  console.log("Rendering products:", products);
 
+  return (
+    <div className="products">
+      <h1 className="title">Products</h1>
+      {products.map((product) => (
+        <div className="product-card" key={product.id}>
+          <img src={product.imageUrl}/>
+          <h3>{product.productDescription}</h3>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default Landing
+export default Landing;
