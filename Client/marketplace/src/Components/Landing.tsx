@@ -10,6 +10,7 @@ interface Product {
   id: number;
   imageUrl: string;
   productDescription: string;
+  productPrice: string;
 }
 
 const Landing = () => {
@@ -26,18 +27,24 @@ const Landing = () => {
     handleProducts();
   }, []);
 
-  console.log("Rendering products:", products);
+  //console.log("Rendering products:", products);
 
   return (
+    <div>
+    <h1 className="title">Marketplace</h1>
     <div className="products">
-      <h1 className="title">Products</h1>
+      
       {products.map((product) => (
         <div className="product-card" key={product.id}>
-          <img className="image-size"src={product.imageUrl}/>
-          <h3>{product.productDescription}</h3>
+          <img className="image-size" src={product.imageUrl}/>
+          <h3 className="text-left">{product.productDescription}</h3>
+          <h3 className="text-left price">{product.productPrice}
+          <span className="decimal">.99</span>
+          </h3>
         </div>
       ))}
     </div>
+  </div>
   );
 };
 
