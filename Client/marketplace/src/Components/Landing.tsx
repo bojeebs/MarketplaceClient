@@ -3,6 +3,8 @@ import { GetProducts } from "../services/ProductServices"
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState} from 'react'
+import '../Styles/landingstyles.css'
+
 
 interface Product {
   id: number;
@@ -31,7 +33,7 @@ const Landing = () => {
       <h1 className="title">Products</h1>
       {products.map((product) => (
         <div className="product-card" key={product.id}>
-          <img src={product.imageUrl}/>
+          <img className="image-size"src={product.imageUrl}/>
           <h3>{product.productDescription}</h3>
         </div>
       ))}
