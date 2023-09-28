@@ -11,6 +11,7 @@ interface Product {
   imageUrl: string;
   productDescription: string;
   productPrice: string;
+  slashPrice: string
 }
 
 const Landing = () => {
@@ -31,22 +32,27 @@ const Landing = () => {
 
   return (
     <div>
-    <h1 className="title">Marketplace</h1>
-    <div className="products">
-      
-      {products.map((product) => (
-        <div className="product-card" key={product.id}>
-          <img className="image-size" src={product.imageUrl}/>
-          <h3 className="text-left">{product.productDescription}</h3>
-          <h3 className="text-left price">{product.productPrice}
-          <h3 className="slash-price"></h3>
-          <span className="decimal">.99</span>
-          </h3>
-        </div>
-      ))}
-    </div>
-  </div>
+      <h1 className="title">Marketplace</h1>
+      <div className="products">
+        {products.map((product) => (
+          <div className="product-card" key={product.id}>
+            <img className="image-size" src={product.imageUrl}/>
+            <div className="price-container">
+              <h3 className="name">{product.productDescription}</h3>
+              <h3 className="slash-price">${product.slashPrice}
+                <span className="decimal-two">.99</span>
+              </h3>
+              <h3 className="name price">${product.productPrice}
+                <span className="decimal">.99</span>
+              </h3>
+              <h3 className="shipping">Free Shipping</h3>
+            </div> 
+          </div>  
+        ))}
+      </div>  
+    </div>  
   );
+  
 };
 
 export default Landing;

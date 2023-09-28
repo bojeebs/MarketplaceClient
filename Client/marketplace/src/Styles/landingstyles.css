@@ -24,11 +24,19 @@
   column-gap: 0rem; 
   
 }
-
+ 
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 75%;
+  padding: 0rem 1rem;
+  margin-top: -0.5rem
+}
 .product-card {
   display: flex;
-  align-items: flex-start; 
-  justify-content: space-between; 
+  align-items: center; 
+  justify-content: flex-start; 
   flex-direction: column;
   align-items: center; 
   width: 23rem;
@@ -38,23 +46,36 @@
   margin: 0rem;
 }
 
-.text-left, .price {
-  width: 75%; 
-  text-align: left;
-  margin-top: 0rem;
-  margin-bottom: 4.5rem;
-  padding: 0;
-  margin-bottom: 4rem;
+.slash-price {
+  text-decoration: line-through;
+  color: grey;
+  font-size: .9rem;
 }
 
+.name, .price, .slash-price, .shipping {
+  margin: 0.4rem 0; 
+}
+
+.name {
+
+}
+
+
 .price {
-  font-size: 2rem;
-  padding: 0;
-  margin-top: -1rem;
-  
+  font-size: 1.5rem; 
 }
 
 .decimal {
-  font-size: 1rem;
+  font-size: .75rem;
   vertical-align: super;
+  display: inline;
+}
+
+.decimal-two {
+  font-size: .9rem; 
+}
+
+.shipping {
+  font-size: .9rem;
+  font-weight: normal;
 }
