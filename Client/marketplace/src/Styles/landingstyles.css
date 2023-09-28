@@ -52,7 +52,7 @@
   font-size: .9rem;
 }
 
-.name, .price, .slash-price, .shipping {
+.name, .price, .slash-price, .shipping, .cart {
   margin: 0.4rem 0; 
 }
 
@@ -78,4 +78,17 @@
 .shipping {
   font-size: .9rem;
   font-weight: normal;
+}
+
+.cart{
+  font-size: 1rem;
+  background-color: #F39834;
+  border-radius: .15rem;
+  border: 1px solid #CC6600;
+  padding: .35rem .5rem !important;
+
+}
+
+.cart:hover {
+  opacity: 0.8
 }

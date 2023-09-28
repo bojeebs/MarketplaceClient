@@ -46,6 +46,7 @@ const Landing = () => {
                 <span className="decimal">.99</span>
               </h3>
               <h3 className="shipping">Free Shipping</h3>
+              <button className="cart">Add to Cart</button>
             </div> 
           </div>  
         ))}
