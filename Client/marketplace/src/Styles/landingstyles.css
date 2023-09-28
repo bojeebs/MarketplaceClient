@@ -7,6 +7,7 @@
   width: 17rem;
   height: 15rem;
   border-radius: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .image-grid {
@@ -24,13 +25,6 @@
   
 }
 
-.text-left, .price {
-  width: 75%; 
-  text-align: left;
-  margin: 0;
-  padding: 0;
-}
-
 .product-card {
   display: flex;
   align-items: flex-start; 
@@ -44,8 +38,20 @@
   margin: 0rem;
 }
 
+.text-left, .price {
+  width: 75%; 
+  text-align: left;
+  margin-top: 0rem;
+  margin-bottom: 4.5rem;
+  padding: 0;
+  margin-bottom: 4rem;
+}
+
 .price {
   font-size: 2rem;
+  padding: 0;
+  margin-top: -1rem;
+  
 }
 
 .decimal {

@@ -39,6 +39,7 @@ const Landing = () => {
           <img className="image-size" src={product.imageUrl}/>
           <h3 className="text-left">{product.productDescription}</h3>
           <h3 className="text-left price">{product.productPrice}
+          <h3 className="slash-price"></h3>
           <span className="decimal">.99</span>
           </h3>
         </div>
