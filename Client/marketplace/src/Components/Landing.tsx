@@ -19,10 +19,15 @@ const Landing = () => {
   const [products, setProducts] = useState<Product[]>([]);
   let navigate = useNavigate();
 
+  const navigateToProductDetails = (productId) => {
+    navigate('/product-details/${productId')
+  }
+
+
   useEffect(() => {
     const handleProducts = async () => {
       const data = await GetProducts();
-      console.log("Received products:", data);
+      // console.log("Received products:", data);
       setProducts(data);
     };
     handleProducts();
@@ -34,9 +39,14 @@ const Landing = () => {
     <div>
       <h1 className="title">Marketplace</h1>
       <div className="products">
+
         {products.map((product) => (
           <div className="product-card" key={product.id}>
-            <img className="image-size" src={product.imageUrl}/>
+            <img className="image-size" src={product.imageUrl}
+            onClick={() => navigateToProductDetails(product.id)}
+            />
+
+
             <div className="price-container">
               <h3 className="name">{product.productDescription}</h3>
               <h3 className="slash-price">${product.slashPrice}
