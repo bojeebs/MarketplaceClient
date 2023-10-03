@@ -23,7 +23,7 @@ const [user, setUser] = useState(null)
       <Route path="/home" element={<><Landing /></>}/>
       <Route path="login" element={<><Login /></>}/>
       <Route path="register" element={<><Register/> </>}/>
-      <Route path="product-details" element={<><ProductDetails/></>}/>
+      <Route path="product-details/:productId" element={<><ProductDetails/></>}/>
 
 
 
