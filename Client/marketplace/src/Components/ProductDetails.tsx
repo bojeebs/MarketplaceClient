@@ -18,18 +18,22 @@ const ProductDetails = () => {
 
 const { authenticated, setAuthenticated, user, setUser} = useAuth()
 const [product, setProducts] = useState<Product | null>(null);
+
 const { productId } = useParams();
-console.log(productId)
+
+// console.log(`About to make API call with productId: ${productId}`);
+console.log("Params:", useParams());
+
+
 useEffect (() => {
   const renderDetails = async () => {
-    if (productId) {
       try {
         const data = await GetProductId(productId);
         console.log("Received product:", data);
         setProducts(data);
       } catch (error) {
         console.log("Error fetching product:", error);
-      }
+      
     }
   };
   renderDetails();

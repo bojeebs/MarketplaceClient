@@ -12,7 +12,8 @@ export const GetProducts = async () => {
 
 export const GetProductId = async (productId) => {
   try { 
-    const res = await Client.get(`/api/product/${productId}`); // Make sure to use backticks here
+    // console.log("ProductId in ProductServices:", productId)
+    const res = await Client.get(`http://localhost:3001/api/products/${productId}`); 
     return res.data;
   } catch (error) {
     throw error;

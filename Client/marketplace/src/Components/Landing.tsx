@@ -20,7 +20,7 @@ const Landing = () => {
   let navigate = useNavigate();
 
   const navigateToProductDetails = (productId) => {
-    navigate('/product-details/${productId')
+    navigate(`/product-details/${productId}`)
   }
 
 
