@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { GetProductId, GetProducts } from "../services/ProductServices";
+import '../Styles/productdetails.css'
+
 
 interface Product {
   id: number;
   imageUrl: string;
-  productDescrption: string;
+  productDescription: string;
   productPrice: string;
   slashPrice: string
   
@@ -20,9 +22,6 @@ const { authenticated, setAuthenticated, user, setUser} = useAuth()
 const [product, setProducts] = useState<Product | null>(null);
 
 const { productId } = useParams();
-
-// console.log(`About to make API call with productId: ${productId}`);
-console.log("Params:", useParams());
 
 
 useEffect (() => {
@@ -40,22 +39,25 @@ useEffect (() => {
 }, [productId]);
 
 
-
-
-
-
-
-
-
-
-
-  return (
+return (
   <div>
-    
+    {product ? ( 
+      <>
+        <h1 className="product-title">{product.productDescription}</h1>
+        <img className="product-image" src={product.imageUrl}/>
+         
+            
+          
+        <p>Price: {product.productPrice}</p>
+        
+      </> 
+    ) : (
+      <p>Loading...</p>
+    )}
   </div>
-  )
-}
+);
 
+  }
 
 export default ProductDetails
 

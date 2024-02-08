@@ -4,6 +4,7 @@ import Landing from './Components/Landing.tsx';
 import Login from './Components/Login.tsx';
 import Register from './Components/Register.tsx';
 import ProductDetails from './Components/ProductDetails.tsx'
+import Cart from './Components/Cart.tsx';
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router';
 
@@ -24,6 +25,7 @@ const [user, setUser] = useState(null)
       <Route path="login" element={<><Login /></>}/>
       <Route path="register" element={<><Register/> </>}/>
       <Route path="product-details/:productId" element={<><ProductDetails/></>}/>
+      <Route path="cart" element={<><Cart/> </>}/>
 
 
 
